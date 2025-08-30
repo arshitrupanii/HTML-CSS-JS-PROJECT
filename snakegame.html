@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game mafia</title>
+</head>
+
+<style>
+    *{
+        padding: 0;
+        color: white;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        margin: 0;
+    }
+
+    .body{
+        width: 100vw;
+        height: 100vh;
+        background: url("asset/blank1.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .scoreBox, .highScore{
+        font-size: 3.5vmin;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+    }
+
+    .highScore{
+        top: 50px;
+    }
+    
+    .board{
+        width: 90vmin;
+        height: 91vmin;
+        display: grid;
+        grid-template-columns: repeat(18, 1fr);
+        grid-template-rows: repeat(18, 1fr);
+        border: 1px solid white;
+        box-shadow: 10px 10px black;
+        background: linear-gradient(135deg, #0a0a2a, #10142f);
+    }
+
+    .snake-head{
+        width: 1fr;
+        background-color:firebrick;
+        grid-column: 10;
+        grid-row: 4;
+        border-radius: 25px;
+    }
+
+    .snake{
+        border: 3px solid #10142f;
+        width: 1fr;
+        border-radius: 5px;
+        background-color: green;
+        grid-column: 10;
+        grid-row: 5;
+    }
+
+    .food{
+        background-color: orange;
+        border-radius: 25px;
+        width: 1fr;
+        grid-column: 10;
+        grid-row: 10;
+    }
+
+</style>
+
+<body>
+    <div class="body">
+        <div class="scoreBox">Score : 10</div>
+        <div class="highScore"> High Score : 11</div>
+        <div class="board">
+            <div class="food"></div>
+            <div class="snake-head"></div>
+            <div class="snake"></div>
+            <div style="grid-column: 10; grid-row: 6;" class="snake"></div>
+            <div style="grid-column: 10; grid-row: 7;" class="snake"></div>
+            <div style="grid-column: 10; grid-row: 8;" class="snake"></div>
+
+        </div>
+    </div>
+</body>
+</html>

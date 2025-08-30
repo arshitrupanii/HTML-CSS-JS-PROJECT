@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative To-Do List</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+        }
+
+        .todo-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            width: 320px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f3f3f3;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .task:hover {
+            transform: scale(1.05);
+            background: #e0e0e0;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        input[type="checkbox"]:checked+label {
+            text-decoration: line-through;
+            color: gray;
+            transition: color 0.3s ease;
+        }
+
+        label {
+            flex-grow: 1;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .add-task {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .task-input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .add-btn {
+            padding: 8px 12px;
+            border: none;
+            background: #667eea;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="todo-container">
+        <h2>✨ My To-Do List ✨</h2>
+        <div class="task-list">
+            <div class="task">
+                <input type="checkbox" id="task1">
+                <label for="task1">Learn HTML & CSS</label>
+            </div>
+            <div class="task">
+                <input type="checkbox" id="task2">
+                <label for="task2">Build a Stylish To-Do App</label>
+            </div>
+            <div class="task">
+                <input type="checkbox" id="task3">
+                <label for="task3">Explore CSS Animations</label>
+            </div>
+        </div>
+        <div class="add-t   ask">
+            <input type="text" class="task-input" placeholder="New task..." required>
+            <button class="add-btn">Add</button>
+        </div>
+    </div>
+
+    <script>
+        let input_text = document.querySelector('.task-input');
+        let add_button = document.querySelector('.add-btn');
+
+        add_button.addEventListener('click', function () {
+            if (input_text.value.trim() === '') {
+                alert('Please enter a task!');
+                return;
+            }
+            let new_task = document.createElement('div');
+            new_task.classList.add('task');
+            new_task.innerHTML = `<input type="checkbox" id="task${Math.floor(Math.random() * 1000)}">
+                                  <label for="task${Math.floor(Math.random() * 1000)}">${input_text.value}</label>`;
+            document.querySelector('.task-list').appendChild(new_task);
+            input_text.value = '';
+        })
+
+    </script>
+</body>
+
+</html>
